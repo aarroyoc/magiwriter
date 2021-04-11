@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Writer</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, height=device-height">
+        <link rel="stylesheet" href="/static/writer.css">
+    </head>
+    <body>
+        <h1>Writer</h1>
+        <button id="clear">Clear canvas</button>
+        <button id="predict">Predict</button>
+        <br/>
+        <canvas id="canvas" width="500" height="500"></canvas>
+        <table>
+            <tr>
+                <th>Algorithm</th>
+                <th>Prediction</th>
+            </tr>
+            <tr>
+                <td>SVM Linear</td>
+                <td id="svm_linear"></td>
+            </tr>
+            <tr>
+                <td>SVM RBF</td>
+                <td id="svm_rbf"></td>
+            </tr>
+            <tr>
+                <td>KNN</td>
+                <td id="knn"></td>
+            </tr>
+        </table>
+        <script async src="/static/writer.js"></script>
+    </body>
+</html>

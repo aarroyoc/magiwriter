@@ -1,0 +1,10 @@
+body{
+    font-family: sans-serif;
+}
+canvas{
+    border: 5px solid red;
+    cursor: crosshair;
+}
+table{
+    float: right;
+}
