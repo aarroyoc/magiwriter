@@ -8,10 +8,11 @@ authors = ["Adrián Arroyo Calle <adrian.arroyocalle@gmail.com>"]
 python = "^3.9"
 fastapi = "^0.63.0"
 uvicorn = "^0.13.4"
-numpy = "^1.20.2"
 scikit-learn = "^0.24.1"
 joblib = "^1.0.1"
 Pillow = "^8.2.0"
+aiofiles = "^0.7.0"
+tensorflow = "^2.5.0"
 
 [tool.poetry.dev-dependencies]
 

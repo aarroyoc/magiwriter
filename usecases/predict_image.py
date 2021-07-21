@@ -42,5 +42,8 @@ def predict_image(request_prediction):
         return "disabled"
     elif request_prediction.algorithm == Algorithm.knn:
         return "disabled"
+    elif request_prediction.algorithm == Algorithm.keras:
+        predictor = factory.get_keras_predictor()
+        return str(predictor.predict(final_pic))
     else:
         raise NotImplementedError()

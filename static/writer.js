@@ -15,6 +15,7 @@ function main(){
         lastPointX = null;
         lastPointY = null;
         evt.preventDefault();
+        predict();
     });
     canvas.addEventListener("touchmove", evt => {
         if(lastPointX !== null && lastPointY !== null){
@@ -36,6 +37,7 @@ function main(){
     canvas.addEventListener("mouseup", () => {
         lastPointX = null;
         lastPointY = null;
+        predict();
     });
     canvas.addEventListener("mousemove", (evt) => {
         if(lastPointX !== null && lastPointY !== null){
@@ -52,10 +54,11 @@ function main(){
     document.getElementById("clear").onclick = () => {
         ctx.clearRect(0, 0, 500, 500);
     };
-    document.getElementById("predict").onclick = () => {
+    function predict() {
         const svmLinear = document.getElementById("svm_linear");
         const svmRbf = document.getElementById("svm_rbf");
         const knn = document.getElementById("knn");
+        const keras = document.getElementById("keras");
         //window.open(canvas.toDataURL(), "_blank");
         fetch("/api/mnist", {
             method: "POST",
@@ -90,6 +93,18 @@ function main(){
             }
         }).then(res => res.json())
         .then(res => knn.textContent = res.prediction);
+
+        fetch("/api/mnist", {
+            method: "POST",
+            body: JSON.stringify({
+                algorithm: "keras",
+                image: canvas.toDataURL()
+            }),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(res => res.json())
+        .then(res => keras.textContent = res.prediction);
     };
 }
 main();

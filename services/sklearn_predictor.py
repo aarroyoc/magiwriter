@@ -1,6 +1,6 @@
 from joblib import load
 
-class SklearnPredcitor():
+class SklearnPredictor():
     def __init__(self, path):
         self.model = load(path)
 
